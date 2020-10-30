@@ -1,0 +1,11 @@
+{
+    "Name": "Имя",
+    "E-Mail Address": "э-почта",
+    "Password": "Пароль",
+    "Confirm Password": "Подтвердите пароль",
+    "Register": "зарегистрироваться",
+    "Login": "Войти",
+    "Remember Me": "Помни меня",
+    "Welcome": "Добро Пожаловать",
+    "Forgot Your Password?": "Забыл свой пароль?"
+}
