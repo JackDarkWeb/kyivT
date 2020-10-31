@@ -2,25 +2,24 @@
 
 namespace App\Http\Middleware;
 
+use App\Providers\RouteServiceProvider;
 use Closure;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class RedirectIfAuthenticated
 {
     /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  $guard
-     * @return mixed
+     * @param $request
+     * @param Closure $next
+     * @param null $guard
+     * @return RedirectResponse|mixed
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        //dd(Session::all());
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        if (Session::has('auth')) {
+            return back();
         }
 
         return $next($request);

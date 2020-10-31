@@ -2,28 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
+
+use App\Services\UserService;
 
 class DashboardController extends Controller
 {
-    /**
-     * DashboardController constructor.
-     */
-    public function __construct()
-    {
-
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return Renderable
-     */
-    public function index()
-    {
+    function index(){
+        //dd(UserService::activeUser(user()->id));
         return view('dashboard');
     }
 }

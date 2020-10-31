@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,21 +14,35 @@
 |
 */
 
-use Illuminate\Support\Facades\App;
-use Stichoza\GoogleTranslate\GoogleTranslate;
+Route::pattern('lang', 'en|ru');
 
-Route::pattern('language', 'en|ru');
+Route::redirect('/', App::getLocale());
 
-Route::redirect('/', 'en');
-
-Route::group(['prefix' => '{language}'], function(){
+Route::group(['prefix' => '{lang}'], function(){
 
     App::setLocale(Request::segment(1));
 
-    Auth::routes();
-
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    Route::get('login','Auth\\LoginController@showLoginForm')->name('login');
+    Route::post('login','Auth\\LoginController@store')->name('login.store');
+    Route::get('logout','Auth\\LoginController@loggedOut')->name('logout');
+
+    Route::get('register','Auth\\RegisterController@showRegisterForm')->name('register');
+    Route::post('register','Auth\\RegisterController@store')->name('register.store');
+
+    Route::get('password/forgot','Auth\\ForgotPasswordController@showEmailForm')->name('password.request');
+    Route::post('password/forgot','Auth\\ForgotPasswordController@store')->name('password.email');
+
+    Route::get('password/reset/{token}','Auth\\ResetPasswordController@showPasswordResetForm')->name('reset.password');
+    Route::post('password/reset/{token}','Auth\\ResetPasswordController@store')->name('password.update');
+
+    Route::get('verification','Auth\\VerificationController@index')->name('verification');
+
+
+
+    Route::middleware('auth')->group(function (){
+        Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    });
 
 });
-

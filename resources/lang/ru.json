@@ -5,7 +5,17 @@
     "Confirm Password": "Подтвердите пароль",
     "Register": "зарегистрироваться",
     "Login": "Войти",
+    "Send Password Reset Link": "Отправить ссылку сброса пароля",
     "Remember Me": "Помни меня",
     "Welcome": "Добро Пожаловать",
-    "Forgot Your Password?": "Забыл свой пароль?"
+    "Forgot Your Password?": "Забыл свой пароль?",
+    "Before proceeding, please check your email for a verification link.": "Перед тем, как продолжить, пожалуйста, проверьте вашу электронную почту на предмет наличия проверочной ссылки.",
+    "Verify Your Email Address": "Убедитесь, что Ваш адрес электронной почты",
+    "A fresh verification link has been sent to your email address.": "На Ваш электронный адрес отправлена свежая ссылка для проверки.",
+    "If you did not receive the email": "Если вы не получили письмо",
+    "click here to request another": "нажать здесь, чтобы запросить другой",
+    "Reset Password": "Сброс пароля",
+    "Click in the button for change your password": "Нажмите на кнопку для смены пароля",
+    "Reset Your Password": "Сброс вашего пароля",
+    "Please confirm your password before continuing.": "Пожалуйста, подтвердите ваш пароль перед тем, как продолжить."
 }
